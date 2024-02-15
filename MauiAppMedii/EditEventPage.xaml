@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMedii.EditEventPage"
+             Title="Edit Event">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="30">
+
+            <!-- Add your fields for editing the event's details here -->
+            <Entry x:Name="titleEntry" Placeholder="Title" Text="{Binding Title}" />
+            <Editor x:Name="descriptionEditor" Placeholder="Description" Text="{Binding Description}" />
+            <DatePicker x:Name="startDatePicker" Date="{Binding StartDate}" />
+            <DatePicker x:Name="endDatePicker" Date="{Binding EndDate}" />
+            <StackLayout Spacing="20" VerticalOptions="StartAndExpand">
+                <Button Text="Save Changes" Clicked="OnSaveChangesClicked" WidthRequest="250" VerticalOptions="Start"/>
+                <Button Text="Cancel" Clicked="OnCancelClicked" WidthRequest="250" VerticalOptions="Start"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

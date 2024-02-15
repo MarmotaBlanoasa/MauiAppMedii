@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMedii.AddEventPage"
+             Title="Add Event">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label Text="Event Title"/>
+            <Entry x:Name="EventTitleEntry" Placeholder="Enter event title"/>
+
+            <Label Text="Event Description"/>
+            <Editor x:Name="EventDescriptionEditor" Placeholder="Enter event description"/>
+
+            <Label Text="Start Date"/>
+            <DatePicker x:Name="EventStartDatePicker"/>
+
+            <Label Text="End Date"/>
+            <DatePicker x:Name="EventEndDatePicker"/>
+            <Button Text="Save Event" Clicked="OnSaveEventClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

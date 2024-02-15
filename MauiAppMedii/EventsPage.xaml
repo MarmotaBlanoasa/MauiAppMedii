@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMedii.EventsPage"
+             Title="Events Page"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+            <Frame BackgroundColor="#FFFFFF" Padding="0" CornerRadius="10" HasShadow="True" Margin="0,0,0,20">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15">
+                    <Button Text="Prev day" Clicked="OnPreviousDayClicked" HorizontalOptions="Start" WidthRequest="130" Margin="0,0,10,0"/>
+                    <Label Text="{Binding SelectedDate, StringFormat='{}{0:D}'}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                    <Button Text="Next day" Clicked="OnNextDayClicked" WidthRequest="130" Margin="10,0,0,0" HorizontalOptions="End"/>
+                </StackLayout>
+            </Frame>
+
+            <Button Text="Add Event" Clicked="OnAddEventClicked" HorizontalOptions="Start" WidthRequest="150" Style="{StaticResource PrimaryButtonStyle}"/>
+
+            <CollectionView ItemsSource="{Binding Events}" SelectionMode="Single" SelectionChanged="OnEventSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" HasShadow="True" Padding="10" Margin="5" BackgroundColor="#FFFFFF">
+                            <StackLayout Orientation="Vertical" Spacing="5">
+                                <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Medium" />
+                                <Label Text="{Binding Description}" FontSize="Small" />
+                                <StackLayout Orientation="Horizontal" Spacing="0">
+                                    <Label Text="Start Date: " FontSize="Small" FontAttributes="Bold"/>
+                                    <Label Text="{Binding StartDate, StringFormat='{0:MMMM dd, yyyy}'}" FontSize="Small" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Spacing="0">
+                                    <Label Text="End Date: " FontSize="Small" FontAttributes="Bold"/>
+                                    <Label Text="{Binding EndDate, StringFormat='{0:MMMM dd, yyyy}'}" FontSize="Small" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
